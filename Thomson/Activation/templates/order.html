@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Orders Page</title>
+</head>
+<body>
+Hello Girdhar!<p>Today is {{today}}</p>
+      We are in 
+      {% if today.day == 1 %}
+<p>the first day of month.</p>
+      {% elif today.day == 17 %}
+the 17th day of month.
+      {% else %}
+<p>I don't know.</p>
+      {%endif%}
+<p>
+         {% for day in days_of_week %}
+         Weeks days are :{{day}}
+      </p>
+
+      {% endfor %}
+
+
+<table class="table table-hover">
+    <thead>
+
+    <tr>
+        <th>Order No</th>
+        <th>Order Name</th>
+        <th>Order Quantity</th>
+        <th>Order Image</th>
+    </tr>
+    </thead>
+    <tbody>
+     {% for each in orders %}
+<tr class="table-success">
+     <td>{{each.order_id}}</td>
+    <td>{{each.order_name}}</td>
+     <td><img class="img-thumbnail" src='{{each.order_image}}' height="50" width="50" alt="Thumbnail image"></td>
+    <td>{{each.order_quantity}}</td>
+</tr>
+    {% endfor %}
+</tbody>
+</table>
+</body>
+</html>
