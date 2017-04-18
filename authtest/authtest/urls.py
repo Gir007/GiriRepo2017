@@ -1,4 +1,4 @@
-"""Thomson URL Configuration
+"""authtest URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -16,11 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from log import views
+from log.forms import LoginForm
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^activation/', include('Activation.urls')),
-    url(r'^deactivation/',include('Deactivation.urls')),
-    url(r'login/',include('Activation.views.login'))
-   # url(r'^home/','Activation.views.first',name='login')
+    url(r'', include('log.urls')),
+    url(r'^login/$', views.home),
 
 ]
